@@ -162,4 +162,42 @@ const HomePage = () => {
                 <Card hoverable>
                   <div className="flex justify-between items-start mb-4">
                     <h3 className="text-2xl font-bold">{course.name}</h3>
-                    <Badge variant={course.level === 'Beginner' ? 'success' : course
+                    <Badge variant={course.level === 'Beginner' ? 'success' : course.level === 'Advanced' ? 'error' : 'warning'}>
+                      {course.level}
+                    </Badge>
+                  </div>
+                  <p className="text-text-secondary mb-4">{course.lessons} lessons</p>
+                  <Button variant="outline" fullWidth>
+                    Start Learning →
+                  </Button>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto text-center">
+          <Card variant="gradient" className="p-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to Start Your Coding Journey?
+            </h2>
+            <p className="text-text-secondary text-lg mb-8 max-w-2xl mx-auto">
+              Join thousands of learners who are building real skills, one lesson at a time.
+            </p>
+            <Button variant="primary" size="lg">
+              Create Free Account Now
+            </Button>
+            <p className="text-text-tertiary text-sm mt-4">
+              No credit card required. Start coding in 30 seconds.
+            </p>
+          </Card>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default HomePage;
