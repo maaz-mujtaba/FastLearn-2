@@ -8,7 +8,9 @@ load_dotenv()
 app = FastAPI(
     title="fastlearn.com API",
     description="Interactive Coding Education Platform",
-    version="1.0.0"
+    version="1.0.0",
+    docs_url="/docs",
+    redoc_url="/redoc"
 )
 
 # CORS configuration
@@ -24,14 +26,22 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Import and include routers
+from app.routers import auth, courses, lessons
+
+app.include_router(auth.router)
+app.include_router(courses.router)
+app.include_router(lessons.router)
+
 @app.get("/")
 def root():
     return {
         "message": "Welcome to fastlearn.com API",
         "status": "operational",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "docs": "/docs"
     }
 
 @app.get("/health")
 def health_check():
-    return {"status": "healthy"}
+    return {"status": "healthy", "database": "connected"}

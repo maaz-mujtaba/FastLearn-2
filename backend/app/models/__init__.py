@@ -1,6 +1,8 @@
-from app.database import Base
+#from app.database import Base
+from app.models.course import Course
+from app.models.lesson import Lesson
+from app.models.user_progress import UserProgress
+from app.models.subscription import Subscription
+from app.models.certificate import Certificate
 
-# Import all models here (will add later)
-# from app.models.user import User
-# from app.models.course import Course
-# from app.models.lesson import Lesson
+__all__ = ["User", "Course", "Lesson", "UserProgress", "Subscription", "Certificate"]
