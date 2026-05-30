@@ -111,7 +111,7 @@ code {
 }
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@300;400;500&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@300;400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -148,8 +148,10 @@ code {
     @apply bg-dark-card border border-dark-border rounded-btn px-4 py-2 text-text-primary focus:outline-none focus:border-accent-purple transition-all duration-200;
   }
 }
-
+*/
 /* Custom scrollbar */
+
+/*
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -165,4 +167,85 @@ code {
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-accent-purple;
+}
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-text-primary font-body antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold;
+  }
+  
+  /* Gradient text utility */
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent-purple to-accent-purpleLight bg-clip-text text-transparent;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-accent-purple to-accent-purpleDark text-white px-6 py-3 rounded-btn font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-accent-purple/20 hover:scale-105 active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-dark-card border-2 border-accent-purple text-accent-purple px-6 py-3 rounded-btn font-semibold transition-all duration-200 hover:bg-accent-purple hover:text-white hover:scale-105 active:scale-95;
+  }
+  
+  .card {
+    @apply bg-dark-card rounded-card p-6 border border-dark-border transition-all duration-300 hover:border-accent-purple hover:shadow-xl hover:shadow-accent-purple/10 hover:-translate-y-1;
+  }
+  
+  .input {
+    @apply bg-dark-card border border-dark-border rounded-input px-4 py-2 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent-purple focus:border-transparent transition-all duration-200;
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(124, 111, 247, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(124, 111, 247, 0.6); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-dark-border rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-accent-purple;
+}
+
+.bg-grid-white\/5 {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgba(255,255,255,0.05)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
 }
